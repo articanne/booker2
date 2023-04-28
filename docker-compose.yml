@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   app:
+    image: articanne/booker2:latest
     build: .
     ports:
       - "8080:8080"
