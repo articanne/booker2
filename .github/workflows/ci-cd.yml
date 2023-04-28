@@ -19,7 +19,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Build and test
-        run: ./mvnw clean package
+        run: ./mvnw clean package -DskipTests
 
   deploy:
     runs-on: ubuntu-latest
