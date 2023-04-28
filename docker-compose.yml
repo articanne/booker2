@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=booker_db
+      - DB_USERNAME=booker
+      - DB_PASSWORD=booker
+
+  db:
+    image: "postgres:latest"
+    container_name: "booker_db"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: booker_db
+      POSTGRES_USER: booker
+      POSTGRES_PASSWORD: booker
+    volumes:
+      - booker_data:/var/lib/postgresql/data
+
+volumes:
+  booker_data:
